@@ -188,7 +188,7 @@
   date: none,
   meta: none,
   location: none,
-  bold: none,
+  bold: true,
 ) = {
   context {
     let style = cv-style.get()

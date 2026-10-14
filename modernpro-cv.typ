@@ -188,6 +188,7 @@
   date: none,
   meta: none,
   location: none,
+  bold: none,
 ) = {
   context {
     let style = cv-style.get()
@@ -216,7 +217,7 @@
             column-gutter: 1em,
             [
               #if is-filled(title) {
-                text(style.item-title-size, fill: style.subheading, weight: "bold")[#title]
+                text(style.item-title-size, fill: style.subheading, ..(if bold {(weight: "bold")} else {(:)}))[#title]
               }
             ],
             [
@@ -261,7 +262,7 @@
 
 // Education part
 #let education(institution: none, major: none, date: none, location: none, description: none) = {
-  _entry-header(title: institution, date: date, meta: major, location: location)
+  _entry-header(title: institution, date: date, meta: major, location: location
   _entry-description(description)
   _entry-finish()
 }
@@ -347,8 +348,8 @@
   }
 }
 
-#let twoline-item(entry1: none, entry2: none, entry3: none, entry4: none, description: none) = {
-  _entry-header(title: entry1, date: entry2, meta: entry3, location: entry4)
+#let twoline-item(entry1: none, entry2: none, entry3: none, entry4: none, description: none, bold: true) = {
+  _entry-header(title: entry1, date: entry2, meta: entry3, location: entry4, bold: bold)
   _entry-description(description)
   _entry-finish()
 }
@@ -361,12 +362,14 @@
   location: none,
   details: none,
   description: none,
+  bold: true,
 ) = twoline-item(
   entry1: _first-filled((title, left)),
   entry2: right,
   entry3: meta,
   entry4: location,
   description: _first-filled((details, description)),
+  bold: bold,
 )
 
 #let award(award: none, institution: none, date: none) = {

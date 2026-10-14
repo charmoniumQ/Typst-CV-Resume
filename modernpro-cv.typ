@@ -209,7 +209,7 @@
     if is-filled(title) or is-filled(date) or is-filled(qualifier) {
       // Implicit paragraph spacing would swamp the rhythm tokens, so every gap
       // inside an entry is an explicit v() and the blocks contribute none.
-      block(breakable: false, sticky: true, above: 0pt, below: 0pt)[
+      block(sticky: true, above: 0pt, below: 0pt)[
         #block(above: 0pt, below: 0pt)[
           #grid(
             columns: (1fr, auto),

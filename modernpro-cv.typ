@@ -262,7 +262,7 @@
 
 // Education part
 #let education(institution: none, major: none, date: none, location: none, description: none) = {
-  _entry-header(title: institution, date: date, meta: major, location: location
+  _entry-header(title: institution, date: date, meta: major, location: location)
   _entry-description(description)
   _entry-finish()
 }

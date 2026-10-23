@@ -13,11 +13,11 @@
 // a restrained size ladder, four colours, and one rhythm system. Keep this block in sync with
 // modernpro-coverletter.typ so a CV and a letter read as one document set.
 #let default-cv-style = (
-  text: rgb("#1f2933"),
+  text: rgb("#000000"),
   muted: rgb("#667085"),
-  heading: rgb("#1f2933"),
-  subheading: rgb("#1f2933"),
-  accent: rgb("#1e3a5f"),
+  heading: rgb("#000000"),
+  subheading: rgb("#000000"),
+  accent: rgb("#000000"),
   rule: rgb("#dde3ea"),
 
   heading-font: ("PT Serif", "Libertinus Serif"),
@@ -286,8 +286,8 @@
 #let descript = summary
 
 // Job title
-#let job(position: none, institution: none, location: none, date: none, description: none) = {
-  _entry-header(title: position, date: date, meta: institution, location: location)
+#let job(position: none, institution: none, location: none, date: none, description: none, bold: true) = {
+  _entry-header(title: position, date: date, meta: institution, location: location, bold: bold)
   _entry-description(description)
   _entry-finish()
 }
@@ -302,12 +302,14 @@
   date: none,
   details: none,
   description: none,
+  bold: true,
 ) = job(
   position: _first-filled((title, position)),
   institution: _first-filled((institution, organization)),
   location: location,
   date: date,
   description: _first-filled((details, description)),
+  bold: bold,
 )
 
 // Details
